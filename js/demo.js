@@ -11,7 +11,7 @@ function startDemo()
 	audio = new Audio()
 	audio.src = uri
 	//audio.volume = 0
-	bpm = 120
+	bpm = 130
 	
 	audio.play()
 	
