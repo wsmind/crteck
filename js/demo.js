@@ -5,6 +5,7 @@ function startDemo()
 	// load sound
 	var player = new CPlayer()
 	player.init(song)
+	//player.generate()
 	while (!player.generate().done);
 	var wave = player.createWave()
 	var uri = "data:audio/wav;base64," + btoa(wave)
@@ -56,6 +57,7 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx1: 1.0
 		},
 		{
 			s: 4,
@@ -63,6 +65,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		{
 			s: 4.1,
@@ -70,6 +73,7 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx1: 1.0
 		},
 		{
 			s: 4.6,
@@ -77,6 +81,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		{
 			s: 4.7,
@@ -84,6 +89,7 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx1: 1.0
 		},
 		{
 			s: 4.8,
@@ -91,6 +97,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		{
 			s: 4.9,
@@ -98,6 +105,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [1.0, 1.0, 1.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		{
 			s: 5.2,
@@ -105,6 +113,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		// part 2
 		{
@@ -132,6 +141,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
+			fx1: 1.0
 		},
 		{
 			s: 11.5,
@@ -167,7 +177,6 @@ function startDemo()
 			transition: 1.0,
 			fx2: 1.0
 		},
-
 		{
 			s: 20,
 			e: 24,
@@ -191,14 +200,16 @@ function startDemo()
 			s: 32,
 			e: 38,
 			sh: dimensions,
-			fx: fxStripes
+			fx: fxStripes,
+			fx2: 1.0
 		},
 		{
 			s: 38,
 			e: 40,
 			sh: dimensions,
-			fx: fxTvSnow,
-			transition: 1,
+			fx: fxStripes,
+			transition: 2,
+			fx2: 1.0
 		},
 
 		// part 6 :
@@ -206,9 +217,10 @@ function startDemo()
 			s: 40,
 			e: 48,
 			sh: drive,
-			fx: fxTvSnow,
-			transition: 1,
-			fx2: 1.0
+			fx: fxStripes,
+			transition: -2,
+			fx1: 2,
+			fx2: 1
 		},
 		{
 			s: 48,
@@ -312,10 +324,10 @@ function updateDemo()
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
 			
-			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 1.0
+			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 0.0
 			if (scene.transition !== undefined)
 			{
-				fx1 *= (scene.transition * demoTime - scene.transition * scene.s) / (scene.e - scene.s)
+				fx1 += (scene.transition * demoTime - scene.transition * scene.s) / (scene.e - scene.s)
 			}
 			fx.setFloatUniform('opt', fx1)
 			
