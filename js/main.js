@@ -30,11 +30,13 @@ function setupText()
 	document.body.appendChild(text)
 
 	text.style.position = 'fixed'
-	text.style.top = '50%'
-	text.style.left = '50%'
+	text.style.top = '70%'
+	text.style.left = '70%'
 	text.style.fontSize = '50px'
 	text.style.color = 'white'
-	text.style.textShadow = '2px 2px #ff0000'
+	text.style.textShadow = '1px 1px #aaaaaa'
+	text.style.fontFamily = 'arial'
+	text.style.fontWeight = 'bold'
 	text.id = 's'
 }
 
