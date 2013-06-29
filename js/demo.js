@@ -1,11 +1,8 @@
 function startDemo()
 {
-	//Math.seedrandom("plop")
-	
 	// load sound
 	var player = new CPlayer()
 	player.init(song)
-	//player.generate()
 	while (!player.generate().done);
 	var wave = player.createWave()
 	var uri = "data:audio/wav;base64," + btoa(wave)
@@ -423,6 +420,8 @@ function startDemo()
 function updateDemo()
 {
 	var demoTime = audio.currentTime * bpm / 120.0
+	
+	gl.viewport(0, 0, canvas.width, canvas.height)
 	
 	for (var i = 0; i < timeline.length; i++)
 	{
