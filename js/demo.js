@@ -39,6 +39,7 @@ function startDemo()
 	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
 	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
 	bass = new ShaderProgram(backgroundVertexShader, bassFragmentShader)
+	fog = new ShaderProgram(backgroundVertexShader, fogFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
@@ -158,6 +159,13 @@ function startDemo()
 			e: 42,
 			sh: bass,
 			fx: fxStripes
+		},
+		{
+			s: 42,
+			e: 50,
+			sh: fog,
+			fx: fxTvSnow,
+			fx1: 0.4
 		}
 	]
 	timeline_text = [
