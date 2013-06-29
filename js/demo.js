@@ -37,7 +37,7 @@ function startDemo()
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	
 	// post-effects
-	fxTest = new ShaderProgram(backgroundVertexShader, fxFragmentShader)
+	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
 	fxBlur = new ShaderProgram(backgroundVertexShader, blurFragmentShader)
 	fxChroma = new ShaderProgram(backgroundVertexShader, chromaFragmentShader)
 	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
@@ -47,7 +47,7 @@ function startDemo()
 			s: 0,
 			e: 8,
 			sh: testShader,
-			fx: fxTvSnow
+			fx: fxStripes
 		},
 		{
 			s: 8,
@@ -65,7 +65,7 @@ function startDemo()
 			s: 10,
 			e: 16,
 			sh: shaderNotStraight,
-			fx: fxBlur
+			fx: fxStripes
 		},
 		{
 			s: 16,

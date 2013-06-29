@@ -24,5 +24,7 @@ void main()
 	uv += diff * t;
 	color.r = texture2D(img, uv).r;
 	
+	color *= vec3(1.0 - pow(distance(uv, vec2(0.5, 0.5)), 2.1) * 2.8);
+	
 	gl_FragColor = vec4(color, 1.0);
 }

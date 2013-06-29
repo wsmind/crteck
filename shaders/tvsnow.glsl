@@ -45,5 +45,7 @@ void main(void)
 	color = mix(vec3(0.), texture, color);
 	color.b += .042;
 	
+	color *= vec3(1.0 - pow(distance(uv, vec2(0.5, 0.5)), 2.1) * 2.8);
+	
 	gl_FragColor = vec4(color, 1.);
 }
