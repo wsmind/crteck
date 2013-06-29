@@ -48,6 +48,7 @@ function startDemo()
 	fxChroma = new ShaderProgram(stripesVertexShader, chromaFragmentShader)
 	fxDistorsion = new ShaderProgram(stripesVertexShader, distorsionFragmentShader)
 	fxTvSnow = new ShaderProgram(stripesVertexShader, tvsnowFragmentShader)
+	fxPowerOff = new ShaderProgram(stripesVertexShader, poweroffFragmentShader)
 	
 	timeline = [
 		// part 1
@@ -151,7 +152,7 @@ function startDemo()
 		},
 		{
 			s: 13,
-			e: 13.2,
+			e: 13.6,
 			sh: terrain,
 			fx: fxChroma,
 		},
@@ -188,56 +189,69 @@ function startDemo()
 		// part 4 : horloge tournante
 		{
 			s: 24,
+			e: 28,
+			sh: fog,
+			fx: fxStripes,
+			sh1: [0.0, 0.4, 0.0]
+		},
+
+		{
+			s: 28,
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.0, 0.4, 0.0],
+			sh1: [0.4, 0.4, 0.]
 		},
-
-
-		// part 5 : balles de golf
 		{
 			s: 32,
-			e: 38,
+			e: 36,
+			sh: fog,
+			fx: fxStripes,
+			sh1: [0.6, 0.5, 0.2]
+		},
+		// part 5 : balles de golf
+		{
+			s: 36,
+			e: 48,
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0
 		},
 		{
-			s: 38,
-			e: 40,
+			s: 48,
+			e: 52,
 			sh: dimensions,
 			fx: fxStripes,
 			transition: 2,
 			fx2: 1.0
 		},
-
-		// part 6 :
 		{
-			s: 40,
-			e: 48,
-			sh: drive,
-			fx: fxStripes,
-			transition: -2,
-			fx1: 2,
+			s: 52,
+			e: 56,
+			sh: fog,
+			fx: fxDistorsion,
+			transition: -1,
+			sh1: [0.5, 0.0, 0.0],
+			fx1: 1,
 			fx2: 1
 		},
 		{
-			s: 48,
-			e: 56,
-			sh: drive,
+			s: 56,
+			e: 60,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
 			fx: fxStripes
 		},
 		{
-			s: 56,
-			e: 64,
-			sh: fog,
+			s: 60,
+			e: 68,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
-			transition: 1,
-			sh1: [0.5, 0.0, 0.0],
+			transition: 1
 		},
 		{
-			s: 64,
+			s: 68,
 			e: 76,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
@@ -249,7 +263,36 @@ function startDemo()
 			sh: bass,
 			fx: fxStripes
 		},
-
+		{
+			s: 108,
+			e: 116,
+			sh: colorShader,
+			sh1: [0., 0., 0.],
+			fx: fxStripes
+		},
+		{
+			s: 116,
+			e: 120,
+			sh: fog,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: 1
+		},
+		{
+			s: 120,
+			e: 124,
+			sh: colorShader,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: -1
+		},
+		{
+			s: 124,
+			e: 128,
+			sh: colorShader,
+			sh1: [1., 1., 1.],
+			fx: fxPowerOff
+		}
 	]
 	timeline_text = [
 		{
@@ -282,6 +325,16 @@ function startDemo()
 			e: 22.9,
 			txt: ''
 		},
+		{
+			s: 108.0,
+			e: 116,
+			txt: 'CRTECK'
+		},
+		{
+			s: 116,
+			e: 116.1,
+			txt: ''
+		}
 	]
 }
 
