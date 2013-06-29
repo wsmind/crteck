@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Art Forge</title>
+		<style type="text/css">
+			body
+			{
+				margin: 0px;
+				padding: 0px;
+				background-color: #000;
+				font-family: sans-serif;
+			}
+			
+			#canvas
+			{
+				z-index: 0;
+			}
+			
+			#timeline
+			{
+				/*display: none;*/
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				
+				opacity: 0.8;
+				
+				z-index: 10;
+				overflow: auto;
+				
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				
+				cursor: default;
+				
+				border-top: 2px solid #000;
+				border-bottom: 2px solid #000;
+			}
+			
+			#timeline .tracks
+			{
+				position: relative;
+				margin: 0px;
+				padding: 0px;
+				list-style-type: none;
+			}
+			
+			#timeline .tracks > li
+			{
+				color: #fff;
+				text-align: center;
+				height: 30px;
+				line-height: 30px;
+				border-top: 1px solid #000;
+			}
+			
+			#timeline .header
+			{
+				position: relative;
+				left: 0px;
+				width: 100px;
+				top: 0px;
+				bottom: 0px;
+				border-left: 10px solid #000;
+				border-right: 3px solid #000;
+				background-color: #333;
+				color: #fff;
+			}
+			
+			#timeline .content
+			{
+				position: absolute;
+				left: 113px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				background-color: #111;
+			}
+			
+			#timeline .clips
+			{
+				position: relative;
+				color: #fff;
+				list-style-type: none;
+			}
+			
+			#timeline .clips li
+			{
+				position: absolute;
+				top: 0px;
+				height: 30px;
+				line-height: 30px;
+				background-color: #666;
+			}
+			
+			#timeline .clips .left-handle
+			{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 8px;
+				bottom: 0px;
+				display: block;
+				background-color: #aaa;
+			}
+			
+			#timeline .clips .right-handle
+			{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 8px;
+				bottom: 0px;
+				display: block;
+				background-color: #aaa;
+			}
+			
+			#timeline .clips .left-handle:hover
+			{
+				background-color: #ddd;
+			}
+			
+			#timeline .clips .right-handle:hover
+			{
+				background-color: #ddd;
+			}
+			
+			#cursor
+			{
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				width: 2px;
+				background-color: #eee;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="timeline">
+			<div class="header">
+				<ul class="tracks">
+					<li>track1</li>
+					<li>track2</li>
+				</ul>
+			</div>
+			<div class="content">
+				<ul class="tracks">
+					<li>
+						<ul class="clips">
+							<li><span class="left-handle"></span>Eiffel tower<span class="right-handle"></span></li>
+							<!--<li>Rainbow</li>
+							<li>Duck</li>-->
+						</ul>
+					</li>
+					<li>
+						<ul class="clips">
+							<li>Everest</li>
+							<li>Dude</li>
+						</ul>
+					</li>
+				</ul>
+				<div id="cursor"></div>
+			</div>
+		</div>
+		<script type='text/javascript' src='build/all.js'></script>
+	</body>
+</html>

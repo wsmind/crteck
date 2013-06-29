@@ -1,0 +1,12 @@
+{
+	"name": "demojs2013-invitro",
+	"version": "0.1.0",
+	"dependencies": {
+		"glsl-unit": "*",
+		"line-reader": "*",
+		"rimraf": "*"
+	},
+	"engines": {
+		"node": ">=0.8"
+	}
+}
