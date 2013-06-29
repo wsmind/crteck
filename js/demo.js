@@ -45,6 +45,7 @@ function startDemo()
 	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
 	
 	timeline = [
+		// part 1
 		{
 			s: 0,
 			e: 4,
@@ -111,36 +112,69 @@ function startDemo()
 		},
 		{
 			s: 8,
-			e: 9,
+			e: 8.5,
 			sh: testShader2,
 			fx: fxStripes
 		},
 		{
-			s: 9,
-			e: 9.3,
+			s: 8.75,
+			e: 9.25,
 			sh: testShader2,
 			fx: fxChroma
 		},
 		{
-			s: 9.3,
+			s: 9.25,
 			e: 10,
 			sh: testShader2,
-			fx: fxStripes
+			fx: fxStripes,
 		},
 		{
 			s: 10,
+			e: 11.5,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 11.5,
 			e: 16,
+			sh: testShader2,
+			fx: fxStripes,
+		},
+
+		{
+			s: 16,
+			e: 18,
 			sh: shaderNotStraight,
 			fx: fxStripes
 		},
 		{
-			s: 16,
-			e: 24,
-			sh: testShader,
-			fx: fxTvSnow
+			s: 18,
+			e: 20,
+			sh: shaderNotStraight,
+			fx: fxTvSnow,
+			fx1: 0.0
 		},
+
 		{
-			s: 24,
+			s: 20,
+			e: 22.75,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxStripes,
+			fx1: 0.0
+		},
+
+		{
+			s: 22.75,
+			e: 28,
+			sh: shaderNotStraight,
+			fx: fxStripes
+		},
+
+		{
+			s: 28,
 			e: 32,
 			sh: dimensions,
 			fx: fxChroma
@@ -148,23 +182,23 @@ function startDemo()
 	]
 	timeline_text = [
 		{
-			s: 0,
-			e: 4,
+			s: 5.5,
+			e: 8,
 			txt: 'titeiko'
 		},
 		{
-			s: 4,
-			e: 8,
+			s: 10,
+			e: 12,
 			txt: 'wsmind'
 		},
 		{
-			s: 8,
-			e: 12,
+			s: 20.3,
+			e: 22.8,
 			txt: 'didjor'
 		},
 		{
-			s: 12,
-			e: 16,
+			s: 24,
+			e: 28,
 			txt: 'present'
 		}
 	]
