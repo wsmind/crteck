@@ -24,6 +24,20 @@ function setupCanvas()
 	resize()
 }
 
+function setupText()
+{
+	text = document.createElement("span")
+	document.body.appendChild(text)
+
+	text.style.position = 'fixed'
+	text.style.top = '50%'
+	text.style.left = '50%'
+	text.style.fontSize = '50px'
+	text.style.color = 'white'
+	text.style.textShadow = '2px 2px #ff0000'
+	text.id = 's'
+}
+
 function resize()
 {
 	canvas.width = window.innerWidth
@@ -40,6 +54,7 @@ function update()
 function main()
 {
 	setupCanvas()
+	setupText()
 	
 	startDemo()
 	

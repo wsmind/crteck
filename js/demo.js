@@ -80,6 +80,18 @@ function startDemo()
 			fx: fxChroma
 		}
 	]
+	timeline_text = [
+		{
+			s: 20,
+			e: 21,
+			txt: 'wsmind'
+		},
+		{
+			s: 30,
+			e: 31,
+			txt: ''
+		}
+	]
 }
 
 function updateDemo()
@@ -117,6 +129,16 @@ function updateDemo()
 			fx.setSamplerUniform("img", 0)
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+		}
+	}
+
+	for (var i = 0; i < timeline_text.length; i++)
+	{
+		var span = document.getElementById('s')
+		var scene = timeline_text[i]
+		if ((demoTime >= scene.s) && (demoTime < scene.e))
+		{
+			span.innerHTML = scene.txt
 		}
 	}
 }
