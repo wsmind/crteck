@@ -44,6 +44,7 @@ function startDemo()
 	fxStripes = new ShaderProgram(stripesVertexShader, stripesFragmentShader)
 	fxBlur = new ShaderProgram(stripesVertexShader, blurFragmentShader)
 	fxChroma = new ShaderProgram(stripesVertexShader, chromaFragmentShader)
+	fxDistorsion = new ShaderProgram(stripesVertexShader, distorsionFragmentShader)
 	fxTvSnow = new ShaderProgram(stripesVertexShader, tvsnowFragmentShader)
 	
 	timeline = [
