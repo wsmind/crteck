@@ -337,7 +337,7 @@ function startDemo()
 			sh: terrain,
 			fx: fxStripes,
 			transition: 2.0,
-			fx2: 1.0
+			fx2: 0.0
 		},
 		
 		
@@ -357,14 +357,6 @@ function startDemo()
 			fx2: 1.0,
 			transition: 1
 		},
-/*		{
-			s: 116,
-			e: 120,
-			sh: colorShader,
-			fx: fxTvSnow,
-			fx2: 1.0,
-			transition: -1
-		},*/
 		{
 			s: 120,
 			e: 122,
