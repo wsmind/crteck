@@ -317,6 +317,15 @@ function updateDemo()
 				fx.setFloatUniform('opt', 1.0)
 			}
 
+			if (scene.fx2 !== undefined)
+			{
+				fx.setFloatUniform('opt2', scene.fx2)
+			}
+			else
+			{
+				fx.setFloatUniform('opt2', 1.0)
+			}
+
 			if (scene.transition !== undefined)
 			{
 				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
