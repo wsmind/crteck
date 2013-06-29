@@ -36,6 +36,9 @@ function startDemo()
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
 	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
+	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
+	bass = new ShaderProgram(backgroundVertexShader, bassFragmentShader)
+	fog = new ShaderProgram(backgroundVertexShader, fogFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
@@ -177,6 +180,25 @@ function startDemo()
 			e: 32,
 			sh: dimensions,
 			fx: fxChroma
+		},
+		{
+			s: 32,
+			e: 36,
+			sh: drive,
+			fx: fxStripes
+		},
+		{
+			s: 36,
+			e: 42,
+			sh: bass,
+			fx: fxStripes
+		},
+		{
+			s: 42,
+			e: 50,
+			sh: fog,
+			fx: fxTvSnow,
+			fx1: 0.4
 		}
 	]
 	timeline_text = [
