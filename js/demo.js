@@ -200,25 +200,32 @@ function startDemo()
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.4, 0.4, 0.]
+			sh1: [0.45, 0.45, 0.1]
 		},
 		{
 			s: 32,
 			e: 36,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.6, 0.5, 0.2]
+			sh1: [0.4, 0.4, 0.]
+		},
+		{
+			s: 36,
+			e: 40,
+			sh: fog,
+			fx: fxStripes,
+			sh1: [0.5, 0.45, 0.1]
 		},
 		// part 5 : balles de golf
 		{
-			s: 36,
-			e: 48,
+			s: 40,
+			e: 44,
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0
 		},
 		{
-			s: 48,
+			s: 44,
 			e: 52,
 			sh: dimensions,
 			fx: fxStripes,
@@ -227,7 +234,7 @@ function startDemo()
 		},
 		{
 			s: 52,
-			e: 56,
+			e: 58,
 			sh: fog,
 			fx: fxDistorsion,
 			transition: -1,
@@ -236,29 +243,15 @@ function startDemo()
 			fx2: 1
 		},
 		{
-			s: 56,
-			e: 60,
-			sh: glowglobes,
-			sh1: [2., 0., 0.],
-			fx: fxStripes
-		},
-		{
-			s: 60,
-			e: 68,
+			s: 58,
+			e: 72,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
 			transition: 1
 		},
 		{
-			s: 68,
-			e: 76,
-			sh: glowglobes,
-			sh1: [2., 0., 0.],
-			fx: fxStripes
-		},
-		{
-			s: 76,
+			s: 72,
 			e: 84,
 			sh: bass,
 			fx: fxStripes
