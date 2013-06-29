@@ -359,12 +359,21 @@ function startDemo()
 		},
 		{
 			s: 120,
-			e: 122,
+			e: 121,
+			sh: colorShader,
+			sh1: [0., 0., 0.],
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: 1
+		},
+		{
+			s: 121,
+			e: 125,
 			sh: colorShader,
 			sh1: [1., 1., 1.],
 			fx: fxPowerOff,
-			transition: -1,
-			fx1: 0.5
+			transition: 1.1,
+			fx1: 0.3
 		}
 	]
 	timeline_text = [

@@ -27,7 +27,7 @@ void main(void)
 	vec2 uv = gl_FragCoord.xy / res.xy;
 	vec3 texture = texture2D(img, uv).rgb;
 	
-	float dBlack = 2. - abs(sin(1. - time * opt)) * 2.;
+	float dBlack = 2. - abs(sin(opt)) * 2.;
 	float dWhite = dBlack * .95;
 	
 	vec3 black = mix(vec3(1.), vec3(0.), clamp(floor(antiVignette(uv) / dBlack), .0, 1.));
