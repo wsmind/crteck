@@ -228,10 +228,29 @@ function startDemo()
 		},
 		{
 			s: 44,
-			e: 52,
+			e: 46,
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0
+		},
+		{
+			s: 46,
+			e: 47,
+			sh: dimensions,
+			fx: fxChroma,
+		},
+		{
+			s: 47,
+			e: 51,
+			sh: dimensions,
+			fx: fxStripes,
+			fx2: 1.0
+		},
+		{
+			s: 51,
+			e: 52,
+			sh: dimensions,
+			fx: fxChroma,
 		},
 		{
 			s: 52,
