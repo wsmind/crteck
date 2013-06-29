@@ -32,8 +32,7 @@ function startDemo()
 	gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, renderTarget, 0)
 	
 	// shaders
-	testShader = new ShaderProgram(backgroundVertexShader, backgroundFragmentShader)
-	testShader2 = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
+	terrain = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
 	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
@@ -112,20 +111,20 @@ function startDemo()
 		},
 		{
 			s: 8,
-			e: 8.5,
-			sh: testShader2,
+			e: 8.75,
+			sh: terrain,
 			fx: fxStripes
 		},
 		{
 			s: 8.75,
 			e: 9.25,
-			sh: testShader2,
+			sh: terrain,
 			fx: fxChroma
 		},
 		{
 			s: 9.25,
 			e: 10,
-			sh: testShader2,
+			sh: terrain,
 			fx: fxStripes,
 		},
 		{
@@ -139,7 +138,7 @@ function startDemo()
 		{
 			s: 11.5,
 			e: 16,
-			sh: testShader2,
+			sh: terrain,
 			fx: fxStripes,
 		},
 
@@ -195,11 +194,6 @@ function startDemo()
 			s: 20.3,
 			e: 22.8,
 			txt: 'didjor'
-		},
-		{
-			s: 24,
-			e: 28,
-			txt: 'present'
 		}
 	]
 }

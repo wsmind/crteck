@@ -16,7 +16,7 @@ void main()
 void main()
 {
 	vec2 uv = gl_FragCoord.xy / res;
-	float delta = 0.1;
+	float delta = 0.01;
 	vec4 color = texture2D(img, uv + vec2(delta, 0.0));
 	color += texture2D(img, uv + vec2(-delta, 0.0));
 	color += texture2D(img, uv + vec2(0.0, delta));
