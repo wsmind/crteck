@@ -41,10 +41,10 @@ function startDemo()
 	fog = new ShaderProgram(colorVertexShader, fogFragmentShader)
 	
 	// post-effects
-	fxStripes = new ShaderProgram(colorVertexShader, stripesFragmentShader)
-	fxBlur = new ShaderProgram(colorVertexShader, blurFragmentShader)
-	fxChroma = new ShaderProgram(colorVertexShader, chromaFragmentShader)
-	fxTvSnow = new ShaderProgram(colorVertexShader, tvsnowFragmentShader)
+	fxStripes = new ShaderProgram(stripesVertexShader, stripesFragmentShader)
+	fxBlur = new ShaderProgram(stripesVertexShader, blurFragmentShader)
+	fxChroma = new ShaderProgram(stripesVertexShader, chromaFragmentShader)
+	fxTvSnow = new ShaderProgram(stripesVertexShader, tvsnowFragmentShader)
 	
 	timeline = [
 		// part 1
@@ -54,7 +54,6 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
-			fx1: 0.0
 		},
 		{
 			s: 4,
@@ -62,7 +61,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 4.1,
@@ -70,7 +68,6 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
-			fx1: 0.0
 		},
 		{
 			s: 4.6,
@@ -78,7 +75,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 4.7,
@@ -86,7 +82,6 @@ function startDemo()
 			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
-			fx1: 0.0
 		},
 		{
 			s: 4.8,
@@ -94,7 +89,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 4.9,
@@ -102,7 +96,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [1.0, 1.0, 1.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 5.2,
@@ -110,7 +103,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 8,
@@ -136,7 +128,6 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
-			fx1: 0.0
 		},
 		{
 			s: 11.5,
@@ -147,36 +138,28 @@ function startDemo()
 
 		{
 			s: 16,
-			e: 18,
+			e: 17,
 			sh: shaderNotStraight,
 			fx: fxStripes
 		},
 		{
-			s: 18,
+			s: 17,
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			fx1: 0.0
+			transition: 1
 		},
 
 		{
 			s: 20,
-			e: 22.75,
+			e: 24,
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
-			fx: fxStripes,
-			fx1: 0.0
-		},
-
-		{
-			s: 22.75,
-			e: 28,
-			sh: shaderNotStraight,
 			fx: fxStripes
 		},
 
 		{
-			s: 28,
+			s: 24,
 			e: 32,
 			sh: dimensions,
 			fx: fxChroma
@@ -262,6 +245,15 @@ function updateDemo()
 			if (scene.fx1 !== undefined)
 			{
 				fx.setFloatUniform('opt', scene.fx1)
+			}
+			else
+			{
+				fx.setFloatUniform('opt', 1.0)
+			}
+
+			if (scene.transition !== undefined)
+			{
+				fx.setFloatUniform('opt', ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
 			}
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
