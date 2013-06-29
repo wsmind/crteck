@@ -3,6 +3,8 @@ precision highp float;
 uniform float time;
 uniform vec2 res;
 uniform sampler2D img;
+
+// opt: Snow density, from 0 (nothing) to 1 (snowy) to even 2 (stormy)!
 uniform float opt;
 
 //! VERTEX

@@ -3,6 +3,8 @@ precision highp float;
 uniform float time;
 uniform vec2 res;
 uniform sampler2D img;
+
+// opt: Color of the background
 uniform vec3 opt;
 
 //! VERTEX

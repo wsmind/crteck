@@ -3,7 +3,9 @@ precision highp float;
 uniform float time;
 uniform vec2 res;
 uniform sampler2D img;
-uniform float opt;
+
+// opt[0]: Number of beats per second
+uniform vec3 opt;
 
 //! VERTEX
 attribute vec2 p;
@@ -62,7 +64,7 @@ void main(void)
 		cos(time) * 5. * PI
 	);
 	
-	float beatBasis = time * 4.;
+	float beatBasis = time * opt[0];
 	vec4 beats = vec4(
 		.3 - floor(mod(beatBasis + 0., 4.) / 3.) * sin(beatBasis * PI) * .5,
 		.3 + floor(mod(beatBasis + 1., 4.) / 3.) * sin(beatBasis * PI) * .5,
