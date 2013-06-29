@@ -103,14 +103,14 @@ function startDemo()
 		},
 		{
 			s: 5.2,
-			e: 6,
+			e: 8,
 			sh: colorShader,
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
 			fx1: 0.0
 		},
 		{
-			s: 6,
+			s: 8,
 			e: 9,
 			sh: testShader2,
 			fx: fxStripes
@@ -135,27 +135,37 @@ function startDemo()
 		},
 		{
 			s: 16,
-			e: 32,
+			e: 24,
 			sh: testShader,
 			fx: fxTvSnow
 		},
 		{
-			s: 32,
-			e: 48,
-			sh: shaderNotStraight,
+			s: 24,
+			e: 32,
+			sh: dimensions,
 			fx: fxChroma
 		}
 	]
 	timeline_text = [
 		{
-			s: 20,
-			e: 21,
+			s: 0,
+			e: 4,
+			txt: 'titeiko'
+		},
+		{
+			s: 4,
+			e: 8,
 			txt: 'wsmind'
 		},
 		{
-			s: 30,
-			e: 31,
-			txt: ''
+			s: 8,
+			e: 12,
+			txt: 'didjor'
+		},
+		{
+			s: 12,
+			e: 16,
+			txt: 'present'
 		}
 	]
 }
@@ -215,6 +225,9 @@ function updateDemo()
 		if ((demoTime >= scene.s) && (demoTime < scene.e))
 		{
 			span.innerHTML = scene.txt
+			var a = Math.min(demoTime - scene.s, scene.e - demoTime)
+			if (a > 1) a = 1
+			span.style.opacity = a * 0.8
 		}
 	}
 }
