@@ -104,6 +104,7 @@ function startDemo()
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxTvSnow,
 		},
+		// part 2
 		{
 			s: 8,
 			e: 8.75,
@@ -122,6 +123,7 @@ function startDemo()
 			sh: terrain,
 			fx: fxStripes,
 		},
+
 		{
 			s: 10,
 			e: 11.5,
@@ -136,6 +138,7 @@ function startDemo()
 			fx: fxStripes,
 		},
 
+		// part 3
 		{
 			s: 16,
 			e: 17,
@@ -157,31 +160,31 @@ function startDemo()
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxStripes
 		},
-
 		{
 			s: 24,
-			e: 32,
+			e: 36,
+			sh: fog,
+			fx: fxChroma,
+			fx1: 0.4
+		},
+
+		{
+			s: 36,
+			e: 44,
 			sh: dimensions,
-			fx: fxChroma
+			fx: fxStripes
 		},
 		{
-			s: 32,
-			e: 36,
+			s: 44,
+			e: 52,
 			sh: drive,
 			fx: fxStripes
 		},
 		{
-			s: 36,
-			e: 42,
+			s: 52,
+			e: 60,
 			sh: bass,
 			fx: fxStripes
-		},
-		{
-			s: 42,
-			e: 50,
-			sh: fog,
-			fx: fxTvSnow,
-			fx1: 0.4
 		}
 	]
 	timeline_text = [
@@ -191,15 +194,30 @@ function startDemo()
 			txt: 'titeiko'
 		},
 		{
+			s: 8,
+			e: 8.1,
+			txt: ''
+		},
+		{
 			s: 10,
-			e: 12,
+			e: 11.5,
 			txt: 'wsmind'
+		},
+		{
+			s: 11.5,
+			e: 11.6,
+			txt: ''
 		},
 		{
 			s: 20.3,
 			e: 22.8,
 			txt: 'didjor'
-		}
+		},
+		{
+			s: 22.8,
+			e: 22.9,
+			txt: ''
+		},
 	]
 }
 
