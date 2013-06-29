@@ -30,7 +30,7 @@ float map(vec3 pos)
 
 vec3 traceRay(vec3 pos, vec3 dir)
 {
-   for (int i = 0; i < 40; i++)
+   for (int i = 0; i < 24; i++)
    {
        float distance = map(pos);
        pos += 0.9 * distance * dir;
