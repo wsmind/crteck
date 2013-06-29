@@ -401,7 +401,7 @@ function startDemo()
 		{
 			s: 104.0,
 			e: 108,
-			txt: 'CRTECK'
+			txt: 'CRTeCK'
 		},
 		{
 			s: 108,

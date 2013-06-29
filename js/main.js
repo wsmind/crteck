@@ -20,6 +20,9 @@ function setupCanvas()
 	// allow resizing
 	window.onresize = resize
 	
+	// window title
+	window.title = "CRTeCK"
+	
 	// apply current window size
 	resize()
 }
