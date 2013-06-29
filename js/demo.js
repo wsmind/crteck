@@ -39,6 +39,7 @@ function startDemo()
 	drive = new ShaderProgram(colorVertexShader, driveFragmentShader)
 	bass = new ShaderProgram(colorVertexShader, bassFragmentShader)
 	fog = new ShaderProgram(colorVertexShader, fogFragmentShader)
+	glowglobes = new ShaderProgram(colorVertexShader, glowglobesFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(stripesVertexShader, stripesFragmentShader)
@@ -151,7 +152,7 @@ function startDemo()
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			transition: 1
+			transition: 0
 		},
 
 		{
@@ -161,22 +162,41 @@ function startDemo()
 			sh1: [0.0, 0.0, 0.0],
 			fx: fxStripes
 		},
+
+		// part 4 : horloge tournante
 		{
 			s: 24,
-			e: 36,
+			e: 32,
 			sh: fog,
-			fx: fxChroma,
+			fx: fxStripes,
 			fx1: 0.4
 		},
 
+		// part 5 : balles de golf
 		{
-			s: 36,
+			s: 32,
 			e: 44,
 			sh: dimensions,
 			fx: fxStripes
 		},
 		{
+			s: 40,
+			e: 44,
+			sh: dimensions,
+			fx: fxTvSnow,
+			transition: 0
+		},
+
+		// part 6 :
+		{
 			s: 44,
+			e: 48,
+			sh: drive,
+			fx: fxTvSnow,
+			transition: 1
+		},
+		{
+			s: 48,
 			e: 52,
 			sh: drive,
 			fx: fxStripes
@@ -185,6 +205,12 @@ function startDemo()
 			s: 52,
 			e: 60,
 			sh: bass,
+			fx: fxStripes
+		},
+		{
+			s: 60,
+			e: 68,
+			sh: glowglobes,
 			fx: fxStripes
 		}
 	]
@@ -272,7 +298,7 @@ function updateDemo()
 
 			if (scene.transition !== undefined)
 			{
-				fx.setFloatUniform('opt', ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
+				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
 			}
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
