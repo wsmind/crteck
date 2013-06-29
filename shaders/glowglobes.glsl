@@ -64,7 +64,7 @@ void main(void)
 		cos(time) * 5. * PI
 	);
 	
-	float beatBasis = time * opt[0];
+	float beatBasis = (time + .5) * opt[0];
 	vec4 beats = vec4(
 		.3 - floor(mod(beatBasis + 0., 4.) / 3.) * sin(beatBasis * PI) * .5,
 		.3 + floor(mod(beatBasis + 1., 4.) / 3.) * sin(beatBasis * PI) * .5,
