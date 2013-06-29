@@ -37,13 +37,14 @@ function startDemo()
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
 	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
+	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
+	bass = new ShaderProgram(backgroundVertexShader, bassFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
 	fxBlur = new ShaderProgram(backgroundVertexShader, blurFragmentShader)
 	fxChroma = new ShaderProgram(backgroundVertexShader, chromaFragmentShader)
 	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
-	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
 	
 	timeline = [
 		{
@@ -150,6 +151,12 @@ function startDemo()
 			s: 32,
 			e: 36,
 			sh: drive,
+			fx: fxStripes
+		},
+		{
+			s: 36,
+			e: 42,
+			sh: bass,
 			fx: fxStripes
 		}
 	]
