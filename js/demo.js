@@ -164,8 +164,8 @@ function startDemo()
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			transition: 0,
-			fx2: 0.0
+			transition: 1.0,
+			fx2: 1.0
 		},
 
 		{
@@ -183,8 +183,8 @@ function startDemo()
 			sh: fog,
 			fx: fxStripes,
 			sh1: [0.3, 0.0, 0.0],
-			fx1: 0.4
 		},
+
 
 		// part 5 : balles de golf
 		{
@@ -199,7 +199,7 @@ function startDemo()
 			sh: dimensions,
 			fx: fxTvSnow,
 			transition: 0,
-			fx2: 0.0
+			fx2: 1.0
 		},
 
 		// part 6 :
@@ -209,7 +209,7 @@ function startDemo()
 			sh: drive,
 			fx: fxTvSnow,
 			transition: 1,
-			fx2: 0.0
+			fx2: 1.0
 		},
 		{
 			s: 48,
@@ -223,7 +223,7 @@ function startDemo()
 			sh: fog,
 			fx: fxDistorsion,
 			transition: 1,
-			fx2: 0.0
+			sh1: [0.3, 0.0, 0.0],
 		},
 		{
 			s: 64,
@@ -328,12 +328,12 @@ function updateDemo()
 			}
 			else
 			{
-				fx.setFloatUniform('opt2', 1.0)
+				fx.setFloatUniform('opt2', 0.0)
 			}
 
 			if (scene.transition !== undefined)
 			{
-				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
+				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s ) / (scene.e - scene.s)))
 			}
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
