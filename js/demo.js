@@ -142,7 +142,7 @@ function startDemo()
 		},
 		{
 			s: 13,
-			e: 13.2,
+			e: 13.6,
 			sh: terrain,
 			fx: fxChroma,
 		},
@@ -165,8 +165,8 @@ function startDemo()
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			transition: 0,
-			fx2: 0.0
+			transition: 1.0,
+			fx2: 1.0
 		},
 
 		{
@@ -183,51 +183,65 @@ function startDemo()
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.3, 0.0, 0.0],
-			fx1: 0.4
+			sh1: [0.0, 0.4, 0.0]
 		},
+
 
 		// part 5 : balles de golf
 		{
 			s: 32,
-			e: 44,
+			e: 38,
 			sh: dimensions,
 			fx: fxStripes
 		},
 		{
-			s: 40,
-			e: 44,
+			s: 38,
+			e: 40,
 			sh: dimensions,
 			fx: fxTvSnow,
-			transition: 0,
-			fx2: 0.0
+			transition: 1
 		},
 
 		// part 6 :
 		{
-			s: 44,
+			s: 40,
 			e: 48,
 			sh: drive,
 			fx: fxTvSnow,
-			transition: 1,
-			fx2: 0.0
+			transition: -1,
+			fx2: 1.0
 		},
 		{
 			s: 48,
-			e: 56,
+			e: 52,
 			sh: drive,
 			fx: fxStripes
 		},
 		{
-			s: 56,
-			e: 64,
+			s: 52,
+			e: 60,
 			sh: fog,
 			fx: fxDistorsion,
 			transition: 1,
-			fx2: 0.0
+			sh1: [0.5, 0.0, 0.0]
+		},
+		{
+			s: 60,
+			e: 64,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
+			fx: fxStripes
 		},
 		{
 			s: 64,
+			e: 69,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
+			fx: fxDistorsion,
+			transition: 1
+		},
+		{
+			s: 69,
 			e: 76,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
@@ -239,6 +253,29 @@ function startDemo()
 			sh: bass,
 			fx: fxStripes
 		},
+		{
+			s: 108,
+			e: 116,
+			sh: colorShader,
+			sh1: [0., 0., 0.],
+			fx: fxStripes
+		},
+		{
+			s: 116,
+			e: 120,
+			sh: fog,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: 1
+		},
+		{
+			s: 120,
+			e: 128,
+			sh: colorShader,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: -1
+		}
 
 	]
 	timeline_text = [
@@ -272,6 +309,16 @@ function startDemo()
 			e: 22.9,
 			txt: ''
 		},
+		{
+			s: 108.0,
+			e: 116,
+			txt: 'CRTECK'
+		},
+		{
+			s: 116,
+			e: 116.1,
+			txt: ''
+		}
 	]
 }
 
@@ -313,29 +360,16 @@ function updateDemo()
 			fx.setFloatUniform("time", demoTime)
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
-
-			if (scene.fx1 !== undefined)
-			{
-				fx.setFloatUniform('opt', scene.fx1)
-			}
-			else
-			{
-				fx.setFloatUniform('opt', 1.0)
-			}
-
-			if (scene.fx2 !== undefined)
-			{
-				fx.setFloatUniform('opt2', scene.fx2)
-			}
-			else
-			{
-				fx.setFloatUniform('opt2', 1.0)
-			}
-
+			
+			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 1.0
 			if (scene.transition !== undefined)
 			{
-				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
+				fx1 *= (scene.transition * demoTime - scene.transition * scene.s) / (scene.e - scene.s)
 			}
+			fx.setFloatUniform('opt', fx1)
+			
+			var fx2 = (scene.fx2 !== undefined) ? scene.fx2 : 0.0
+			fx.setFloatUniform('opt2', fx2)
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 		}
