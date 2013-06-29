@@ -7,6 +7,9 @@ uniform sampler2D img;
 // opt: Snow density, from 0 (nothing) to 1 (snowy) to even 2 (stormy)!
 uniform float opt;
 
+// opt2: Snow color, from 0 (black) to 1 (white)
+uniform float opt2;
+
 //! VERTEX
 attribute vec2 p;
 
@@ -42,9 +45,9 @@ void main(void)
 		time / 1000.
 	) + 1. - opt, 0., 1.));
 	
-	color = mix(color - opt * vec3(.25), color, blurBar);
-	color = mix(color - opt * vec3(.08), color, bar);
-	color = mix(vec3(0.), texture, color);
+	color = mix(color - vec3(.25) * opt, color, blurBar);
+	color = mix(color - vec3(.08) * opt, color, bar);
+	color = mix(vec3(opt2), texture, color);
 	color.b += .042;
 	
 	color *= vec3(1.0 - pow(distance(uv, vec2(0.5, 0.5)), 2.1) * 2.8);
