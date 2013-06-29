@@ -3,6 +3,7 @@ precision highp float;
 uniform float time;
 uniform vec2 res;
 uniform sampler2D img;
+uniform float opt;
 
 //! VERTEX
 attribute vec2 p;
@@ -33,15 +34,14 @@ void main(void)
 	float blurBar = clamp(sin(uv.y * barHeight + time * barSpeed) + 1.25, 0., 1.);
 	float bar = clamp(floor(sin(uv.y * barHeight + time * barSpeed) + 1.95), 0., barOverflow);
 	
-	float noiseIntensity = +0.3;
-	float pixelDensity = 200.;
+	float pixelDensity = 250.;
 	vec3 color = vec3(clamp(rand(
 		vec2(floor(uv.x * pixelDensity * screenRatio), floor(uv.y * pixelDensity)) *
 		time / 1000.
-	) + noiseIntensity, 0., 1.));
+	) + opt, 0., 1.));
 	
-	color = mix(color - vec3(.25), color, blurBar);
-	color = mix(color - vec3(.08), color, bar);
+	color = mix(color - (1. - opt) * vec3(.25), color, blurBar);
+	color = mix(color - (1. - opt) * vec3(.08), color, bar);
 	color = mix(vec3(0.), texture, color);
 	color.b += .042;
 	

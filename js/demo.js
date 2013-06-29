@@ -3,15 +3,13 @@ function startDemo()
 	//Math.seedrandom("plop")
 	
 	// load sound
-	var player = new CPlayer()
-	player.init(song)
-	while (!player.generate().done);
-	var wave = player.createWave()
-	var uri = "data:audio/wav;base64," + btoa(wave)
-	audio = new Audio()
-	audio.src = uri
-	//audio.volume = 0
-	bpm = 120
+	var songGen = new sonant()
+	for (var t = 0; t < 8; t++)
+		songGen.generate(t)
+	audio = songGen.createAudio()
+	//audio = new Audio()
+	audio.volume = 0
+	bpm = 128
 	
 	audio.play()
 	
@@ -56,13 +54,13 @@ function startDemo()
 		{
 			s: 8,
 			e: 9,
-			sh: shaderNotStraight,
+			sh: testShader2,
 			fx: fxBlur
 		},
 		{
 			s: 9,
 			e: 10,
-			sh: dimensions,
+			sh: testShader,
 			fx: fxChroma
 		},
 		{
@@ -74,7 +72,7 @@ function startDemo()
 		{
 			s: 16,
 			e: 32,
-			sh: dimensions,
+			sh: testShader,
 			fx: fxTvSnow
 		},
 		{
