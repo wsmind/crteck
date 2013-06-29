@@ -43,6 +43,7 @@ function startDemo()
 	fxBlur = new ShaderProgram(backgroundVertexShader, blurFragmentShader)
 	fxChroma = new ShaderProgram(backgroundVertexShader, chromaFragmentShader)
 	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
+	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
 	
 	timeline = [
 		{
@@ -144,6 +145,12 @@ function startDemo()
 			e: 32,
 			sh: dimensions,
 			fx: fxChroma
+		},
+		{
+			s: 32,
+			e: 36,
+			sh: drive,
+			fx: fxStripes
 		}
 	]
 	timeline_text = [
