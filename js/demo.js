@@ -182,7 +182,7 @@ function startDemo()
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.3, 0.0, 0.0],
+			sh1: [0.0, 0.4, 0.0],
 			fx1: 0.4
 		},
 
@@ -223,6 +223,7 @@ function startDemo()
 			sh: fog,
 			fx: fxDistorsion,
 			transition: 1,
+			sh1: [0.5, 0.0, 0.0],
 			fx2: 0.0
 		},
 		{
