@@ -360,8 +360,9 @@ function startDemo()
 			sh: colorShader,
 			sh1: [0., 0., 0.],
 			fx: fxTvSnow,
+			fx1: 1.0,
 			fx2: 1.0,
-			transition: 1
+			transition: -1
 		},
 		{
 			s: 121,
@@ -369,7 +370,7 @@ function startDemo()
 			sh: colorShader,
 			sh1: [1., 1., 1.],
 			fx: fxPowerOff,
-			transition: 1.1,
+			transition: 1.5,
 			fx1: 0.3
 		}
 	]
