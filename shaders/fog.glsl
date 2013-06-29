@@ -2,6 +2,7 @@ precision highp float;
 
 uniform float time;
 uniform vec2 res;
+uniform vec3 opt;
 
 //! VERTEX
 attribute vec2 p;
@@ -59,14 +60,19 @@ void main(void)
 		(gl_FragCoord.x - res.x * 0.5) / res.y, gl_FragCoord.y / res.y - 0.5,
 		//cos(time) * 1.5));
 		1.0));
-	vec3 color = vec3(.4, 0., 75.);
+	vec3 color = vec3(.4, 0., 0.75);
     vec3 point = traceRay(pos, dir);
     vec3 normal = calcNormal(point);
 	
-	float fogFactor = 1.0 - (1.0 / exp(point.z * 0.0005));
+	float fogFactor = 1.0 - (1.0 / exp(point.z * 0.0004));
     float diffuse = max(dot(normal, vec3(.9, .9, .9)), 0.0);
-	
+
     color = mix(color * diffuse, vec3(1.), fogFactor);
+	color *= 1.2 + sin(time) * 0.3;
+	
+	vec2 vecteurQuiTourne = vec2(cos(time / 3.14), sin(time / 3.14));
+	float d = 1.0 - pow(dot(vecteurQuiTourne * 4.0, uv - 0.5), 0.5);
+	color += d * opt;
 	
 	gl_FragColor = vec4(color,1.0);
 }

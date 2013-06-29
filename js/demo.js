@@ -169,6 +169,7 @@ function startDemo()
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
+			sh1: [0.3, 0.0, 0.0],
 			fx1: 0.4
 		},
 
