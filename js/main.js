@@ -48,6 +48,13 @@ function resize()
 	canvas.width = window.innerWidth
 	canvas.height = window.innerHeight
 	gl.viewport(0, 0, canvas.width, canvas.height)
+	
+	if (window.renderTarget !== undefined)
+	{
+		// resize render target
+		gl.bindTexture(gl.TEXTURE_2D, renderTarget)
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, canvas.width, canvas.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null)
+	}
 }
 
 function update()
