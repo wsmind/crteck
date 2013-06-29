@@ -164,7 +164,8 @@ function startDemo()
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			transition: 0
+			transition: 0,
+			fx2: 0.0
 		},
 
 		{
@@ -197,7 +198,8 @@ function startDemo()
 			e: 44,
 			sh: dimensions,
 			fx: fxTvSnow,
-			transition: 0
+			transition: 0,
+			fx2: 0.0
 		},
 
 		// part 6 :
@@ -206,7 +208,8 @@ function startDemo()
 			e: 48,
 			sh: drive,
 			fx: fxTvSnow,
-			transition: 1
+			transition: 1,
+			fx2: 0.0
 		},
 		{
 			s: 48,
@@ -219,7 +222,8 @@ function startDemo()
 			e: 64,
 			sh: fog,
 			fx: fxDistorsion,
-			transition: 1
+			transition: 1,
+			fx2: 0.0
 		},
 		{
 			s: 64,
