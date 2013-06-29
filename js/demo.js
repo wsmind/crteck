@@ -318,7 +318,7 @@ function startDemo()
 		{
 			s: 20.3,
 			e: 22.8,
-			txt: 'didjor'
+			txt: 'Did\''
 		},
 		{
 			s: 22.8,
