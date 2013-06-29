@@ -4,14 +4,13 @@ function startDemo()
 	
 	// load sound
 	var songGen = new sonant()
-	for (var t = 0; t < 1; t++)
+	for (var t = 0; t < 8; t++)
 		songGen.generate(t)
 	audio = songGen.createAudio()
+	//audio = new Audio()
 	audio.volume = 0
 	bpm = 128
 	
-	// wait to have the actual audio duration (not NaN)
-	beatDuration = audio.duration * bpm / 60.0
 	audio.play()
 	
 	// fullscreen quad
@@ -33,53 +32,57 @@ function startDemo()
 	// shaders
 	testShader = new ShaderProgram(backgroundVertexShader, backgroundFragmentShader)
 	testShader2 = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
+	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	
 	// post-effects
-	testFx = new ShaderProgram(backgroundVertexShader, fxFragmentShader)
+	fxTest = new ShaderProgram(backgroundVertexShader, fxFragmentShader)
+	fxBlur = new ShaderProgram(backgroundVertexShader, blurFragmentShader)
+	fxChroma = new ShaderProgram(backgroundVertexShader, chromaFragmentShader)
+	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
 	
 	timeline = [
 		{
 			s: 0,
 			e: 8,
 			sh: testShader,
-			fx: testFx
+			fx: fxTvSnow
 		},
 		{
 			s: 8,
 			e: 9,
 			sh: testShader2,
-			fx: testFx
+			fx: fxBlur
 		},
 		{
 			s: 9,
 			e: 10,
 			sh: testShader,
-			fx: testFx
+			fx: fxChroma
 		},
 		{
 			s: 10,
 			e: 16,
-			sh: testShader2,
-			fx: testFx
+			sh: shaderNotStraight,
+			fx: fxBlur
 		},
 		{
 			s: 16,
 			e: 32,
 			sh: testShader,
-			fx: testFx
+			fx: fxTvSnow
 		},
 		{
 			s: 32,
 			e: 48,
-			sh: testShader2,
-			fx: testFx
+			sh: shaderNotStraight,
+			fx: fxChroma
 		}
 	]
 }
 
 function updateDemo()
 {
-	var demoTime = audio.currentTime * bpm / 60.0
+	var demoTime = audio.currentTime * bpm / 120.0
 	
 	for (var i = 0; i < timeline.length; i++)
 	{

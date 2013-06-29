@@ -1,3 +1,19 @@
+precision highp float;
+
+uniform float time;
+uniform vec2 res;
+uniform sampler2D img;
+
+//! VERTEX
+attribute vec2 p;
+
+void main()
+{
+	gl_Position = vec4(p, 0.0, 1.0);
+}
+
+//! FRAGMENT
+
 // Old TV noise with vertical bars
 
 float rand(vec2 co){
@@ -6,22 +22,22 @@ float rand(vec2 co){
 
 void main(void)
 {
-	vec2 uv = gl_FragCoord.xy / iResolution.xy;
-	float screenRatio = iResolution.x / iResolution.y;
+	vec2 uv = gl_FragCoord.xy / res;
+	float screenRatio = res.x / res.y;
 	
-	vec3 texture = texture2D(iChannel0, uv).rgb;
+	vec3 texture = texture2D(img, uv).rgb;
 	
 	float barHeight = 6.;
 	float barSpeed = 5.6;
 	float barOverflow = 1.2;
-	float blurBar = clamp(sin(uv.y * barHeight + iGlobalTime * barSpeed) + 1.25, 0., 1.);
-	float bar = clamp(floor(sin(uv.y * barHeight + iGlobalTime * barSpeed) + 1.95), 0., barOverflow);
+	float blurBar = clamp(sin(uv.y * barHeight + time * barSpeed) + 1.25, 0., 1.);
+	float bar = clamp(floor(sin(uv.y * barHeight + time * barSpeed) + 1.95), 0., barOverflow);
 	
 	float noiseIntensity = +0.3;
 	float pixelDensity = 200.;
 	vec3 color = vec3(clamp(rand(
 		vec2(floor(uv.x * pixelDensity * screenRatio), floor(uv.y * pixelDensity)) *
-		iGlobalTime / 1000.
+		time / 1000.
 	) + noiseIntensity, 0., 1.));
 	
 	color = mix(color - vec3(.25), color, blurBar);
