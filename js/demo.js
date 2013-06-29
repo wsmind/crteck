@@ -141,7 +141,7 @@ function startDemo()
 		},
 		{
 			s: 13,
-			e: 13.2,
+			e: 13.6,
 			sh: terrain,
 			fx: fxChroma,
 		},
@@ -182,7 +182,7 @@ function startDemo()
 			e: 32,
 			sh: fog,
 			fx: fxStripes,
-			sh1: [0.0, 0.4, 0.0],
+			sh1: [0.0, 0.4, 0.0]
 		},
 
 
@@ -198,7 +198,7 @@ function startDemo()
 			e: 40,
 			sh: dimensions,
 			fx: fxTvSnow,
-			transition: 1,
+			transition: 1
 		},
 
 		// part 6 :
@@ -207,25 +207,40 @@ function startDemo()
 			e: 48,
 			sh: drive,
 			fx: fxTvSnow,
-			transition: 1,
+			transition: -1,
 			fx2: 1.0
 		},
 		{
 			s: 48,
-			e: 56,
+			e: 52,
 			sh: drive,
 			fx: fxStripes
 		},
 		{
-			s: 56,
-			e: 64,
+			s: 52,
+			e: 60,
 			sh: fog,
 			fx: fxDistorsion,
 			transition: 1,
-			sh1: [0.5, 0.0, 0.0],
+			sh1: [0.5, 0.0, 0.0]
+		},
+		{
+			s: 60,
+			e: 64,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
+			fx: fxStripes
 		},
 		{
 			s: 64,
+			e: 69,
+			sh: glowglobes,
+			sh1: [2., 0., 0.],
+			fx: fxDistorsion,
+			transition: 1
+		},
+		{
+			s: 69,
 			e: 76,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
@@ -237,6 +252,29 @@ function startDemo()
 			sh: bass,
 			fx: fxStripes
 		},
+		{
+			s: 108,
+			e: 116,
+			sh: colorShader,
+			sh1: [0., 0., 0.],
+			fx: fxStripes
+		},
+		{
+			s: 116,
+			e: 120,
+			sh: fog,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: 1
+		},
+		{
+			s: 120,
+			e: 128,
+			sh: colorShader,
+			fx: fxTvSnow,
+			fx2: 1.0,
+			transition: -1
+		}
 
 	]
 	timeline_text = [
@@ -270,6 +308,16 @@ function startDemo()
 			e: 22.9,
 			txt: ''
 		},
+		{
+			s: 108.0,
+			e: 116,
+			txt: 'CRTECK'
+		},
+		{
+			s: 116,
+			e: 116.1,
+			txt: ''
+		}
 	]
 }
 
