@@ -32,19 +32,19 @@ function startDemo()
 	gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, renderTarget, 0)
 	
 	// shaders
-	terrain = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
-	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
-	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
-	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
-	drive = new ShaderProgram(backgroundVertexShader, driveFragmentShader)
-	bass = new ShaderProgram(backgroundVertexShader, bassFragmentShader)
-	fog = new ShaderProgram(backgroundVertexShader, fogFragmentShader)
+	colorShader = new ShaderProgram(colorVertexShader, colorFragmentShader)
+	terrain = new ShaderProgram(colorVertexShader, terrainFragmentShader)
+	dimensions = new ShaderProgram(colorVertexShader, dimensionsFragmentShader)
+	shaderNotStraight = new ShaderProgram(colorVertexShader, notstraightFragmentShader)
+	drive = new ShaderProgram(colorVertexShader, driveFragmentShader)
+	bass = new ShaderProgram(colorVertexShader, bassFragmentShader)
+	fog = new ShaderProgram(colorVertexShader, fogFragmentShader)
 	
 	// post-effects
-	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
-	fxBlur = new ShaderProgram(backgroundVertexShader, blurFragmentShader)
-	fxChroma = new ShaderProgram(backgroundVertexShader, chromaFragmentShader)
-	fxTvSnow = new ShaderProgram(backgroundVertexShader, tvsnowFragmentShader)
+	fxStripes = new ShaderProgram(colorVertexShader, stripesFragmentShader)
+	fxBlur = new ShaderProgram(colorVertexShader, blurFragmentShader)
+	fxChroma = new ShaderProgram(colorVertexShader, chromaFragmentShader)
+	fxTvSnow = new ShaderProgram(colorVertexShader, tvsnowFragmentShader)
 	
 	timeline = [
 		// part 1
