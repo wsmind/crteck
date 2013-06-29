@@ -36,7 +36,7 @@ function startDemo()
 	testShader2 = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
-	white = new ShaderProgram(backgroundVertexShader, whiteFragmentShader)
+	colorShader = new ShaderProgram(backgroundVertexShader, colorFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
@@ -47,23 +47,85 @@ function startDemo()
 	timeline = [
 		{
 			s: 0,
-			e: 8,
-			sh: white,
+			e: 4,
+			sh: colorShader,
 			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
-			fx1: 1.0
+			fx1: 0.0
 		},
 		{
-			s: 8,
+			s: 4,
+			e: 4.1,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 4.1,
+			e: 4.6,
+			sh: colorShader,
+			fx: fxTvSnow,
+			sh1: [1.0, 1.0, 1.0],
+			fx1: 0.0
+		},
+		{
+			s: 4.6,
+			e: 4.7,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 4.7,
+			e: 4.8,
+			sh: colorShader,
+			fx: fxTvSnow,
+			sh1: [1.0, 1.0, 1.0],
+			fx1: 0.0
+		},
+		{
+			s: 4.8,
+			e: 4.9,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 4.9,
+			e: 5.2,
+			sh: colorShader,
+			sh1: [1.0, 1.0, 1.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 5.2,
+			e: 6,
+			sh: colorShader,
+			sh1: [0.0, 0.0, 0.0],
+			fx: fxTvSnow,
+			fx1: 0.0
+		},
+		{
+			s: 6,
 			e: 9,
 			sh: testShader2,
-			fx: fxBlur
+			fx: fxStripes
 		},
 		{
 			s: 9,
-			e: 10,
-			sh: testShader,
+			e: 9.3,
+			sh: testShader2,
 			fx: fxChroma
+		},
+		{
+			s: 9.3,
+			e: 10,
+			sh: testShader2,
+			fx: fxStripes
 		},
 		{
 			s: 10,
@@ -118,7 +180,7 @@ function updateDemo()
 			shader.setFloatUniform("time", demoTime)
 			shader.setVec2Uniform("res", [canvas.width, canvas.height])
 
-			if (scene.sh1) 
+			if (scene.sh1 !== undefined) 
 			{
 				shader.setVec3Uniform('opt', scene.sh1)
 			}
@@ -137,7 +199,7 @@ function updateDemo()
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
 
-			if (scene.fx1)
+			if (scene.fx1 !== undefined)
 			{
 				fx.setFloatUniform('opt', scene.fx1)
 			}
