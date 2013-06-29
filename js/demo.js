@@ -262,8 +262,9 @@ function startDemo()
 			s: 64,
 			e: 68,
 			sh: glowglobes,
-			fx: fxStripes,
 			sh1: [2., 0., 0.],
+			fx: fxDistorsion,
+			transition: 1
 		},
 		{
 			s: 68,
@@ -283,8 +284,22 @@ function startDemo()
 			s: 76,
 			e: 80,
 			sh: bass,
+			fx: fxStripes
+		},
+		{
+			s: 80,
+			e: 84,
+			sh: shaderNotStraight,
+			fx: fxTvSnow,
+			transition: 1.0,
+			fx2: 1.0
+		},
+		{
+			s: 84,
+			e: 88,
+			sh: bass,
 			fx: fxStripes,
-			transition: 2
+			transition: 2.0,
 		},
 		{
 			s: 108,
