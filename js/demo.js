@@ -164,8 +164,8 @@ function startDemo()
 			e: 20,
 			sh: shaderNotStraight,
 			fx: fxTvSnow,
-			transition: 0,
-			fx2: 0.0
+			transition: 1.0,
+			fx2: 1.0
 		},
 
 		{
@@ -183,33 +183,32 @@ function startDemo()
 			sh: fog,
 			fx: fxStripes,
 			sh1: [0.0, 0.4, 0.0],
-			fx1: 0.4
 		},
+
 
 		// part 5 : balles de golf
 		{
 			s: 32,
-			e: 44,
+			e: 38,
 			sh: dimensions,
 			fx: fxStripes
 		},
 		{
-			s: 40,
-			e: 44,
+			s: 38,
+			e: 40,
 			sh: dimensions,
 			fx: fxTvSnow,
-			transition: 0,
-			fx2: 0.0
+			transition: 1,
 		},
 
 		// part 6 :
 		{
-			s: 44,
+			s: 40,
 			e: 48,
 			sh: drive,
 			fx: fxTvSnow,
 			transition: 1,
-			fx2: 0.0
+			fx2: 1.0
 		},
 		{
 			s: 48,
@@ -224,7 +223,6 @@ function startDemo()
 			fx: fxDistorsion,
 			transition: 1,
 			sh1: [0.5, 0.0, 0.0],
-			fx2: 0.0
 		},
 		{
 			s: 64,
@@ -313,7 +311,7 @@ function updateDemo()
 			fx.setFloatUniform("time", demoTime)
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
-
+			
 			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 1.0
 			if (scene.transition !== undefined)
 			{
@@ -321,7 +319,7 @@ function updateDemo()
 			}
 			fx.setFloatUniform('opt', fx1)
 			
-			var fx2 = (scene.fx2 !== undefined) ? scene.fx2 : 1.0
+			var fx2 = (scene.fx2 !== undefined) ? scene.fx2 : 0.0
 			fx.setFloatUniform('opt2', fx2)
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
