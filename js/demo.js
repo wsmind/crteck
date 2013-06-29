@@ -135,6 +135,18 @@ function startDemo()
 		},
 		{
 			s: 11.5,
+			e: 13,
+			sh: terrain,
+			fx: fxStripes,
+		},
+		{
+			s: 13,
+			e: 13.2,
+			sh: terrain,
+			fx: fxChroma,
+		},
+		{
+			s: 13.2,
 			e: 16,
 			sh: terrain,
 			fx: fxStripes,
@@ -197,23 +209,30 @@ function startDemo()
 		},
 		{
 			s: 48,
-			e: 52,
+			e: 56,
 			sh: drive,
 			fx: fxStripes
 		},
 		{
-			s: 52,
-			e: 60,
-			sh: bass,
+			s: 56,
+			e: 64,
+			sh: fog,
+			fx: fxDistorsion,
+			transition: 1
+		},
+		{
+			s: 64,
+			e: 76,
+			sh: glowglobes,
 			fx: fxStripes
 		},
 		{
-			s: 60,
-			e: 68,
-			sh: glowglobes,
-			sh1: [4., 0., 0.],
+			s: 76,
+			e: 84,
+			sh: bass,
 			fx: fxStripes
-		}
+		},
+
 	]
 	timeline_text = [
 		{
