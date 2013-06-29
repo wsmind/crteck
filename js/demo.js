@@ -327,15 +327,23 @@ function startDemo()
 		
 		{
 			s: 88,
-			e: 104,
+			e: 96,
 			sh: terrain,
 			fx: fxStripes,
+		},
+		{
+			s: 96,
+			e: 100,
+			sh: terrain,
+			fx: fxStripes,
+			transition: 2.0,
+			fx2: 1.0
 		},
 		
 		
 		
 		{
-			s: 104,
+			s: 100,
 			e: 108,
 			sh: colorShader,
 			sh1: [0., 0., 0.],
@@ -343,28 +351,28 @@ function startDemo()
 		},
 		{
 			s: 108,
-			e: 116,
+			e: 120,
 			sh: fog,
 			fx: fxTvSnow,
 			fx2: 1.0,
 			transition: 1
 		},
-		{
+/*		{
 			s: 116,
 			e: 120,
 			sh: colorShader,
 			fx: fxTvSnow,
 			fx2: 1.0,
 			transition: -1
-		},
+		},*/
 		{
 			s: 120,
-			e: 124,
+			e: 122,
 			sh: colorShader,
 			sh1: [1., 1., 1.],
 			fx: fxPowerOff,
 			transition: -1,
-			fx1: 1
+			fx1: 0.5
 		}
 	]
 	timeline_text = [
