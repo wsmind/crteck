@@ -36,6 +36,7 @@ function startDemo()
 	testShader2 = new ShaderProgram(backgroundVertexShader, terrainFragmentShader)
 	shaderNotStraight = new ShaderProgram(backgroundVertexShader, notstraightFragmentShader)
 	dimensions = new ShaderProgram(backgroundVertexShader, dimensionsFragmentShader)
+	white = new ShaderProgram(backgroundVertexShader, whiteFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(backgroundVertexShader, stripesFragmentShader)
@@ -47,8 +48,10 @@ function startDemo()
 		{
 			s: 0,
 			e: 8,
-			sh: testShader2,
-			fx: fxStripes
+			sh: white,
+			fx: fxTvSnow,
+			sh1: [1.0, 1.0, 1.0],
+			fx1: 1.0
 		},
 		{
 			s: 8,
@@ -114,6 +117,11 @@ function updateDemo()
 			shader.bind()
 			shader.setFloatUniform("time", demoTime)
 			shader.setVec2Uniform("res", [canvas.width, canvas.height])
+
+			if (scene.sh1) 
+			{
+				shader.setVec3Uniform('opt', scene.sh1)
+			}
 			
 			var posAttribute = shader.getAttributeLocation("p")
 			quad.bind(posAttribute)
@@ -128,6 +136,11 @@ function updateDemo()
 			fx.setFloatUniform("time", demoTime)
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
+
+			if (scene.fx1)
+			{
+				fx.setFloatUniform('opt', scene.fx1)
+			}
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 		}
