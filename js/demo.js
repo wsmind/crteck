@@ -5,7 +5,7 @@ function startDemo()
 	// load sound
 	var player = new CPlayer()
 	player.init(song)
-	while (!player.generate());
+	while (!player.generate().done);
 	var wave = player.createWave()
 	var uri = "data:audio/wav;base64," + btoa(wave)
 	audio = new Audio()
