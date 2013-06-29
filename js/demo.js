@@ -314,28 +314,15 @@ function updateDemo()
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
 
-			if (scene.fx1 !== undefined)
-			{
-				fx.setFloatUniform('opt', scene.fx1)
-			}
-			else
-			{
-				fx.setFloatUniform('opt', 1.0)
-			}
-
-			if (scene.fx2 !== undefined)
-			{
-				fx.setFloatUniform('opt2', scene.fx2)
-			}
-			else
-			{
-				fx.setFloatUniform('opt2', 1.0)
-			}
-
+			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 1.0
 			if (scene.transition !== undefined)
 			{
-				fx.setFloatUniform('opt', scene.transition - ((demoTime - scene.s )*1.0 / (scene.e - scene.s)*1.0))
+				fx1 *= (scene.transition * demoTime - scene.transition * scene.s) / (scene.e - scene.s)
 			}
+			fx.setFloatUniform('opt', fx1)
+			
+			var fx2 = (scene.fx2 !== undefined) ? scene.fx2 : 1.0
+			fx.setFloatUniform('opt2', fx2)
 			
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 		}
