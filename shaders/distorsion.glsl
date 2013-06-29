@@ -22,9 +22,9 @@ void main()
 {
 	vec2 uv = gl_FragCoord.xy / res.xy;
 	vec3 color = texture2D(img, uv + vec2(opt * sin(uv.y * (cos(time) * 5.0 + 10.0)), 0.0) * sin(time) * 0.2).rgb;
-	vec3 r = vec3(rand(uv, time)) * 2.0;
-	color *= r;
-	color += r * 0.2;
+	//vec3 r = vec3(rand(uv, time)) * 2.0;
+	//color *= r;
+	//color += r * 0.2;
 	color.r *= sin(uv.y * 8.0 + time) * 0.4 + 0.8;
 	color.gb *= sin(uv.y * 7.5 + time) * 0.4 + 0.8;
 	color = mix(color, vec3(0.5), 0.3);
