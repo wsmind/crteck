@@ -195,14 +195,14 @@ function startDemo()
 		},
 		{
 			s: 32,
-			e: 40,
+			e: 36,
 			sh: fog,
 			fx: fxStripes,
 			sh1: [0.6, 0.5, 0.2]
 		},
 		// part 5 : balles de golf
 		{
-			s: 40,
+			s: 36,
 			e: 48,
 			sh: dimensions,
 			fx: fxStripes
@@ -268,13 +268,19 @@ function startDemo()
 		},
 		{
 			s: 120,
-			e: 128,
+			e: 124,
 			sh: colorShader,
 			fx: fxTvSnow,
 			fx2: 1.0,
 			transition: -1
+		},
+		{
+			s: 124,
+			e: 128,
+			sh: colorShader,
+			sh1: [1., 1., 1.],
+			fx: fxPowerOff
 		}
-
 	]
 	timeline_text = [
 		{
