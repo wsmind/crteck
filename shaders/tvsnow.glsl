@@ -38,10 +38,10 @@ void main(void)
 	vec3 color = vec3(clamp(rand(
 		vec2(floor(uv.x * pixelDensity * screenRatio), floor(uv.y * pixelDensity)) *
 		time / 1000.
-	) + opt, 0., 1.));
+	) + 1. - opt, 0., 1.));
 	
-	color = mix(color - (1. - opt) * vec3(.25), color, blurBar);
-	color = mix(color - (1. - opt) * vec3(.08), color, bar);
+	color = mix(color - opt * vec3(.25), color, blurBar);
+	color = mix(color - opt * vec3(.08), color, bar);
 	color = mix(vec3(0.), texture, color);
 	color.b += .042;
 	
