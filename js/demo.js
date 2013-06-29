@@ -39,6 +39,7 @@ function startDemo()
 	drive = new ShaderProgram(colorVertexShader, driveFragmentShader)
 	bass = new ShaderProgram(colorVertexShader, bassFragmentShader)
 	fog = new ShaderProgram(colorVertexShader, fogFragmentShader)
+	glowglobes = new ShaderProgram(colorVertexShader, glowglobesFragmentShader)
 	
 	// post-effects
 	fxStripes = new ShaderProgram(stripesVertexShader, stripesFragmentShader)
@@ -203,6 +204,12 @@ function startDemo()
 			s: 52,
 			e: 60,
 			sh: bass,
+			fx: fxStripes
+		},
+		{
+			s: 60,
+			e: 68,
+			sh: glowglobes,
 			fx: fxStripes
 		}
 	]
