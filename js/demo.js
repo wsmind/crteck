@@ -257,6 +257,7 @@ function startDemo()
 			sh: glowglobes,
 			fx: fxStripes,
 			sh1: [2., 0., 0.],
+			transition: 2,
 		},
 		{
 			s: 64,
@@ -264,7 +265,8 @@ function startDemo()
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
-			transition: 1
+			transition: -1,
+			fx1: 1
 		},
 		{
 			s: 68,
