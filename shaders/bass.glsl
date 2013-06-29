@@ -59,7 +59,7 @@ void main(void)
 		(gl_FragCoord.x - res.x * 0.5) / res.y, gl_FragCoord.y / res.y - 0.5,
 		//cos(time) * 1.5));
 		1.0));
-	vec3 color = vec3(.4, 0., 75.);
+	vec3 color = vec3(.5, .9, .9);
     vec3 point = traceRay(pos, dir);
     vec3 normal = calcNormal(point);
 	
@@ -67,6 +67,8 @@ void main(void)
     float diffuse = max(dot(normal, vec3(.9, .9, .9)), 0.0);
 	
     color = mix(color * diffuse, vec3(1.), fogFactor);
+	color = mix(vec3(.2 + .05 * sin(time), .25, .0), color, color);
+	//color = mix(vec3(.4, .4, .7), color, color);
 	
 	gl_FragColor = vec4(color,1.0);
 }
