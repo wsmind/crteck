@@ -224,6 +224,7 @@ function startDemo()
 			s: 64,
 			e: 76,
 			sh: glowglobes,
+			sh1: [2., 0., 0.],
 			fx: fxStripes
 		},
 		{
