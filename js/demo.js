@@ -179,68 +179,66 @@ function startDemo()
 		// part 4 : horloge tournante
 		{
 			s: 24,
-			e: 32,
+			e: 28,
 			sh: fog,
 			fx: fxStripes,
 			sh1: [0.0, 0.4, 0.0]
 		},
 
-
-		// part 5 : balles de golf
+		{
+			s: 28,
+			e: 32,
+			sh: fog,
+			fx: fxStripes,
+			sh1: [0.4, 0.4, 0.]
+		},
 		{
 			s: 32,
-			e: 38,
+			e: 40,
+			sh: fog,
+			fx: fxStripes,
+			sh1: [0.6, 0.5, 0.2]
+		},
+		// part 5 : balles de golf
+		{
+			s: 40,
+			e: 48,
 			sh: dimensions,
 			fx: fxStripes
 		},
 		{
-			s: 38,
-			e: 40,
+			s: 48,
+			e: 52,
 			sh: dimensions,
 			fx: fxTvSnow,
 			transition: 1
 		},
 
-		// part 6 :
-		{
-			s: 40,
-			e: 48,
-			sh: drive,
-			fx: fxTvSnow,
-			transition: -1,
-			fx2: 1.0
-		},
-		{
-			s: 48,
-			e: 52,
-			sh: drive,
-			fx: fxStripes
-		},
 		{
 			s: 52,
-			e: 60,
+			e: 56,
 			sh: fog,
 			fx: fxDistorsion,
 			transition: 1,
 			sh1: [0.5, 0.0, 0.0]
 		},
 		{
-			s: 60,
-			e: 64,
+			s: 56,
+			e: 60,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxStripes
 		},
 		{
-			s: 64,
-			e: 69,
+			s: 60,
+			e: 68,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
 			transition: 1
 		},
 		{
-			s: 69,
+			s: 68,
 			e: 76,
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
