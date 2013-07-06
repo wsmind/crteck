@@ -34,7 +34,7 @@ function startDemo()
 	terrain = new ShaderProgram(colorVertexShader, terrainFragmentShader)
 	dimensions = new ShaderProgram(colorVertexShader, dimensionsFragmentShader)
 	shaderNotStraight = new ShaderProgram(colorVertexShader, notstraightFragmentShader)
-	drive = new ShaderProgram(colorVertexShader, driveFragmentShader)
+	// drive = new ShaderProgram(colorVertexShader, driveFragmentShader)
 	bass = new ShaderProgram(colorVertexShader, bassFragmentShader)
 	fog = new ShaderProgram(colorVertexShader, fogFragmentShader)
 	glowglobes = new ShaderProgram(colorVertexShader, glowglobesFragmentShader)
@@ -273,7 +273,7 @@ function startDemo()
 			sh: glowglobes,
 			fx: fxStripes,
 			sh1: [2., 0., 0.],
-			transition: 2,
+			transition: 1,
 		},
 		{
 			s: 64,
