@@ -16,7 +16,7 @@ const float fogDensity = 0.004;
 
 float plane(vec3 pos, vec4 eq)
 {
-  return dot(eq, vec4(pos, 1.0)) - sin(pos.x * 0.5 + time * 2.0) * sin(pos.z * 0.2 + time) * exp(-fract(time)) * 2.0;
+  return dot(eq, vec4(pos, 1.0)) - sin(pos.x * 0.5 + time * 2.0) * sin(pos.z * 0.2 + time) * exp(-fract(time + .1) * 2.) * 2.0;
 }
 
 float map(vec3 pos)
