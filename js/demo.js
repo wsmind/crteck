@@ -48,13 +48,13 @@ function startDemo()
 	fxPowerOff = new ShaderProgram(stripesVertexShader, poweroffFragmentShader)
 	
 	timeline = [
-		// part 1
+		// part 1 - Flickering TV
 		{
 			s: 0,
 			e: 4,
 			sh: colorShader,
-			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx: fxTvSnow,
 			fx1: 1.0
 		},
 		{
@@ -69,8 +69,8 @@ function startDemo()
 			s: 4.1,
 			e: 4.6,
 			sh: colorShader,
-			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx: fxTvSnow,
 			fx1: 1.0
 		},
 		{
@@ -85,8 +85,8 @@ function startDemo()
 			s: 4.7,
 			e: 4.8,
 			sh: colorShader,
-			fx: fxTvSnow,
 			sh1: [1.0, 1.0, 1.0],
+			fx: fxTvSnow,
 			fx1: 1.0
 		},
 		{
@@ -113,7 +113,7 @@ function startDemo()
 			fx: fxTvSnow,
 			fx1: 1.0
 		},
-		// part 2
+		// part 2 - Rythm paradise
 		{
 			s: 8,
 			e: 8.75,
@@ -160,20 +160,24 @@ function startDemo()
 			fx: fxStripes,
 		},
 
-		// part 3
+		// part 3 - Gay pride
 		{
 			s: 16,
 			e: 17,
 			sh: shaderNotStraight,
+			sh1: [0, 0, 0],
+			shTransition: .75,
 			fx: fxStripes
 		},
 		{
 			s: 17,
 			e: 20,
 			sh: shaderNotStraight,
+			sh1: [.75, 0, 0],
+			shTransition: 2.25,
 			fx: fxTvSnow,
-			transition: 1.0,
-			fx2: 1.0
+			fx2: 1.0,
+			fxTransition: 1.0
 		},
 		{
 			s: 20,
@@ -188,30 +192,30 @@ function startDemo()
 			s: 24,
 			e: 28,
 			sh: fog,
-			fx: fxStripes,
-			sh1: [0.0, 0.4, 0.0]
+			sh1: [0.0, 0.4, 0.0],
+			fx: fxStripes
 		},
 		{
 			s: 28,
 			e: 32,
 			sh: fog,
-			fx: fxStripes,
-			sh1: [0.0, 0.3, 0.5]
+			sh1: [0.0, 0.3, 0.5],
+			fx: fxStripes
 		},
 		{
 			s: 32,
 			e: 36,
 			sh: fog,
-			fx: fxStripes,
-			sh1: [0.3, 0.3, 0.]
+			sh1: [0.3, 0.3, 0.],
+			fx: fxStripes
 		},
 		{
 			s: 36,
 			e: 40,
 			sh: fog,
-			fx: fxStripes,
 			sh1: [0.5, 0.5, 0.5],
-			transition: 2
+			fx: fxStripes,
+			fxTransition: 2
 		},
 		// part 5 : balles de golf
 		{
@@ -261,25 +265,25 @@ function startDemo()
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0,
-			transition: 2,
+			fxTransition: 2,
 		},
 		{
 			s: 56,
 			e: 60,
 			sh: fog,
-			fx: fxDistorsion,
-			transition: -1,
 			sh1: [0.5, 0.0, 0.0],
+			fx: fxDistorsion,
 			fx1: 1,
-			fx2: 1
+			fx2: 1,
+			fxTransition: -1
 		},
 		{
 			s: 60,
 			e: 64,
 			sh: glowglobes,
-			fx: fxStripes,
 			sh1: [2., 0., 0.],
-			transition: 1,
+			fx: fxStripes,
+			fxTransition: 1,
 		},
 		{
 			s: 64,
@@ -287,8 +291,8 @@ function startDemo()
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
-			transition: -1,
-			fx1: 1
+			fx1: 1,
+			fxTransition: -1
 		},
 		{
 			s: 68,
@@ -296,7 +300,7 @@ function startDemo()
 			sh: glowglobes,
 			sh1: [2., 0., 0.],
 			fx: fxDistorsion,
-			transition: 1
+			fxTransition: 1
 		},
 		{
 			s: 72,
@@ -306,25 +310,29 @@ function startDemo()
 		},
 		{
 			s: 76,
-			e: 80,
+			e: 79,
 			sh: shaderNotStraight,
+			sh1: [0, 0, 0],
+			shTransition: 3.2,
 			fx: fxTvSnow,
 			fx2: 1.0
 		},
 		{
-			s: 80,
+			s: 79,
 			e: 84,
 			sh: bass,
 			fx: fxStripes,
-			transition: 2.0,
+			fxTransition: 2.0,
 		},
 		{
 			s: 84,
 			e: 88,
 			sh: shaderNotStraight,
+			sh1: [0, 0, 0],
+			shTransition: 3.2,
 			fx: fxTvSnow,
-			transition: 1.0,
-			fx2: 1.0
+			fx2: 1.0,
+			fxTransition: 1.0
 		},
 		
 		
@@ -339,8 +347,8 @@ function startDemo()
 			e: 100,
 			sh: terrain,
 			fx: fxStripes,
-			transition: 2.0,
-			fx2: 0.0
+			fx2: 0.0,
+			fxTransition: 2.0
 		},
 		
 		
@@ -358,7 +366,7 @@ function startDemo()
 			sh: fog,
 			fx: fxTvSnow,
 			fx2: 1.0,
-			transition: 1
+			fxTransition: 1
 		},
 		{
 			s: 120,
@@ -368,7 +376,7 @@ function startDemo()
 			fx: fxTvSnow,
 			fx1: 1.0,
 			fx2: 1.0,
-			transition: -1
+			fxTransition: -1
 		},
 		{
 			s: 121,
@@ -376,8 +384,8 @@ function startDemo()
 			sh: colorShader,
 			sh1: [1., 1., 1.],
 			fx: fxPowerOff,
-			transition: 1.5,
-			fx1: 0.3
+			fx1: 0.3,
+			fxTransition: 1.5
 		}
 	]
 	timeline_text = [
@@ -446,11 +454,20 @@ function updateDemo()
 			shader.setFloatUniform("time", demoTime)
 			shader.setVec2Uniform("res", [canvas.width, canvas.height])
 
-			if (scene.sh1 !== undefined) 
+			if (scene.sh1 !== undefined)
 			{
-				shader.setVec3Uniform('opt', scene.sh1)
+				var sh1 = scene.sh1.slice(0);
+				if (scene.shTransition !== undefined)
+				{
+					var delta = (scene.shTransition * demoTime - scene.shTransition * scene.s) / (scene.e - scene.s);
+
+					sh1[0] += delta;
+					sh1[1] += delta;
+					sh1[2] += delta;
+				}
+				shader.setVec3Uniform('opt', sh1);
 			}
-			
+
 			var posAttribute = shader.getAttributeLocation("p")
 			quad.bind(posAttribute)
 			
@@ -465,10 +482,10 @@ function updateDemo()
 			fx.setVec2Uniform("res", [canvas.width, canvas.height])
 			fx.setSamplerUniform("img", 0)
 			
-			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 0.0
-			if (scene.transition !== undefined)
+			var fx1 = (scene.fx1 !== undefined) ? scene.fx1 : 0.0;
+			if (scene.fxTransition !== undefined)
 			{
-				fx1 += (scene.transition * demoTime - scene.transition * scene.s) / (scene.e - scene.s)
+				fx1 += (scene.fxTransition * demoTime - scene.fxTransition * scene.s) / (scene.e - scene.s)
 			}
 			fx.setFloatUniform('opt', fx1)
 			

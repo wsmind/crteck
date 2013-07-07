@@ -4,6 +4,9 @@ uniform float time;
 uniform vec2 res;
 uniform sampler2D img;
 
+// opt[0]: Time
+uniform vec3 opt;
+
 //! VERTEX
 attribute vec2 p;
 
@@ -24,7 +27,7 @@ void main(void)
 	
 	vec3 color = vec3(
 		cos(uv.x * 10. * PI * screenRatio) +
-		cos(uv.y * 10. * PI) * abs(tan(time)));
+		cos(uv.y * 10. * PI) * abs(tan(opt[0])));
 	
 	color.r += uv.x;
 	color.g += uv.y;
