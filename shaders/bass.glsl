@@ -19,12 +19,12 @@ const vec3 lightColor = vec3(0.5, 1.0, 0.9);
 
 float cube(vec3 pos)
 {
-	return length(max(abs(pos) - vec3(16.0) - vec3(3.) * exp(-mod(time + .25, .5)), 1.));
+	return length(max(abs(pos) - vec3(17.0) - vec3(3.), 1.));
 }
 
 float map(vec3 pos)
 {
-	return cube(mod(pos - vec3(-5.0, 0.0, -time * 100.0), 50.0)
+	return cube(mod(pos - vec3(-5.0, 0.0, -(time + .15) * 50.0), 50.0)
 				 - vec3(25.0, 25.0, 25.0));
 }
 
@@ -56,9 +56,7 @@ void main(void)
 	
 	vec3 pos = vec3(20., 20., 0.);
 	vec3 dir = normalize(vec3(
-		(gl_FragCoord.x - res.x * 0.5) / res.y, gl_FragCoord.y / res.y - 0.5,
-		//cos(time) * 1.5));
-		1.0));
+		(gl_FragCoord.x - res.x * 0.5) / res.y, gl_FragCoord.y / res.y - 0.5, .8));
 	vec3 color = vec3(.5, .9, .9);
     vec3 point = traceRay(pos, dir);
     vec3 normal = calcNormal(point);
