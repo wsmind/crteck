@@ -64,12 +64,13 @@ void main(void)
 		cos(time) * 5. * PI
 	);
 	
-	float beatBasis = (time + .5) * opt[0];
+	float beatBasis = (time + .6) * opt[0];
+	float sinBeat = sin(beatBasis * PI) * .5;
 	vec4 beats = vec4(
-		.3 - floor(mod(beatBasis + 0., 4.) / 3.) * sin(beatBasis * PI) * .5,
-		.3 + floor(mod(beatBasis + 1., 4.) / 3.) * sin(beatBasis * PI) * .5,
-		.3 - floor(mod(beatBasis + 2., 4.) / 3.) * sin(beatBasis * PI) * .5,
-		.3 + floor(mod(beatBasis + 3., 4.) / 3.) * sin(beatBasis * PI) * .5
+		.3 - floor(mod(beatBasis + 0., 4.) / 3.) * sinBeat,
+		.3 + floor(mod(beatBasis + 1., 4.) / 3.) * sinBeat,
+		.3 - floor(mod(beatBasis + 2., 4.) / 3.) * sinBeat,
+		.3 + floor(mod(beatBasis + 3., 4.) / 3.) * sinBeat
 	);
 	
 	vec3 color = vec3(.1, .3, sin(uv.y + .5) * .7) * .8;
