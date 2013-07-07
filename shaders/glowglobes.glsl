@@ -78,7 +78,7 @@ void main(void)
 	
 	color *= vec3(1.0 - floor(distance(uv, vec2(w * 0.5, 0.5)) / .12) * 2.8);
 	color = mix(antiColor, color, clamp(floor(sphere(uv, beats) / .18), .0, 1.2));
-	color *= 1. + exp(-fract(beatBasis) * .6) * .6;
+	color *= 1. + exp(-fract(beatBasis) * 1.2) * 1.0;
 	
 	gl_FragColor = vec4(color, 1.0);
 }

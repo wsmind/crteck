@@ -20,13 +20,12 @@ const vec3 lightColor = vec3(0.5, 1.0, 0.9);
 
 float cube(vec3 pos)
 {
-	return length(max(abs(pos) - vec3(8.0) - vec3(3.) * exp(-mod(time, .5)), 1.));
+	return length(max(abs(pos) - vec3(11.), 1.));
 }
 
 float map(vec3 pos)
 {
-	return cube(mod(pos - vec3(-5.0, 0.0, -time * 100.0), 50.0)
-				 -60.);
+	return cube(mod(pos - vec3(-5.0, 0.0, -time * 100.0), 50.0) - 60.);
 }
 
 vec3 traceRay(vec3 pos, vec3 dir)

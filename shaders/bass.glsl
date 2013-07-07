@@ -24,8 +24,7 @@ float cube(vec3 pos)
 
 float map(vec3 pos)
 {
-	return cube(mod(pos - vec3(-5.0, 0.0, -(time + .15) * 50.0), 50.0)
-				 - vec3(25.0, 25.0, 25.0));
+	return cube(mod(pos - vec3(-5.0, 0.0, -(time + .15) * 50.0), 50.0) - vec3(25.0));
 }
 
 vec3 traceRay(vec3 pos, vec3 dir)
