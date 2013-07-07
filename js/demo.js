@@ -238,19 +238,19 @@ function startDemo()
 		},
 		{
 			s: 47,
-			e: 51,
+			e: 51.2,
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0
 		},
 		{
-			s: 51,
-			e: 52,
+			s: 51.2,
+			e: 51.9,
 			sh: dimensions,
 			fx: fxChroma,
 		},
 		{
-			s: 52,
+			s: 51.9,
 			e: 56,
 			sh: dimensions,
 			fx: fxStripes,
