@@ -216,7 +216,7 @@ function startDemo()
 		// part 5 : balles de golf
 		{
 			s: 40,
-			e: 44,
+			e: 43.2,
 			sh: dimensions,
 			fx: fxStripes,
 			fx1: 2,
@@ -224,20 +224,26 @@ function startDemo()
 			transition: -2
 		},
 		{
-			s: 44,
-			e: 46,
+			s: 43.2,
+			e: 43.9,
+			sh: dimensions,
+			fx: fxChroma,
+		},
+		{
+			s: 43.9,
+			e: 47.2,
 			sh: dimensions,
 			fx: fxStripes,
 			fx2: 1.0
 		},
 		{
-			s: 46,
-			e: 47,
+			s: 47.2,
+			e: 47.9,
 			sh: dimensions,
 			fx: fxChroma,
 		},
 		{
-			s: 47,
+			s: 47.9,
 			e: 51.2,
 			sh: dimensions,
 			fx: fxStripes,
