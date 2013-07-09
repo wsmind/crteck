@@ -70,7 +70,7 @@ void main(void)
 	color *= 1.2 + sin(time) * 0.3;
 	
 	vec2 vecteurQuiTourne = vec2(cos(time / 3.14), sin(time / 3.14));
-	float d = 1.0 - pow(dot(vecteurQuiTourne * 4.0, uv - 0.5), 0.5);
+	float d = 1.0 - pow(abs(dot(vecteurQuiTourne * 4.0, uv - 0.5)), 0.5);
 	color += d * opt;
 	
 	gl_FragColor = vec4(color,1.0);
