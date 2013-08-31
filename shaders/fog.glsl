@@ -20,7 +20,7 @@ const vec3 lightColor = vec3(0.5, 1.0, 0.9);
 
 float cube(vec3 pos)
 {
-	return length(max(abs(pos) - vec3(11.), 1.));
+	return length(max(abs(pos) - vec3(11.0), 1.));
 }
 
 float map(vec3 pos)
@@ -30,11 +30,11 @@ float map(vec3 pos)
 
 vec3 traceRay(vec3 pos, vec3 dir)
 {
-   for (int i = 0; i < 20; i++)
-   {
-       float distance = map(pos);
-       pos += 1.5 * distance * dir;
-   }
+	for (int i = 0; i < 40; i++)
+	{
+	   float distance = map(pos);
+	   pos += 0.9 * distance * dir;
+	}
 	
    return pos;
 }
@@ -70,7 +70,7 @@ void main(void)
 	color *= 1.2 + sin(time) * 0.3;
 	
 	vec2 vecteurQuiTourne = vec2(cos(time / 3.14), sin(time / 3.14));
-	float d = 1.0 - pow(abs(dot(vecteurQuiTourne * 4.0, uv - 0.5)), 0.5);
+	float d = 1.0 - pow(dot(vecteurQuiTourne * 4.0, uv - 0.5), 0.5);
 	color += d * opt;
 	
 	gl_FragColor = vec4(color,1.0);

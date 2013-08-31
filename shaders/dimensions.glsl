@@ -54,7 +54,7 @@ vec3 calcNormal(vec3 pos)
 void main(void)
 {
   vec2 uv = gl_FragCoord.xy / res.xy;
-	pulse = exp(.4-fract(time + .1)) * exp(.4-fract((time + .2)));
+	pulse = exp(.4-fract(time + .1)) + exp(.4-fract((time + .6))) * 0.4;
   
   vec3 pos = vec3(time * 50., sin(time) * 20., 0.);
   vec3 dir = normalize(vec3(

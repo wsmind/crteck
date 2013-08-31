@@ -18,9 +18,9 @@ float plane(vec3 pos, vec4 eq)
 {
   return dot(eq, vec4(pos, 1.0)) - sin(pos.x * 0.5 + time * 2.0) * sin(pos.z * 0.2 + time)
   	// First beat
-  	* exp(.5 -fract(time + .25) * .5)
+  	* exp(0.5 - fract(time + 0.1))
   	// Second beat
-  	* exp(.5 -fract(time + .1) * 1.);
+  	* exp(0.5 - fract(time + 0.35) * 0.5);
 }
 
 float map(vec3 pos)
