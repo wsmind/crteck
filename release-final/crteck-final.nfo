@@ -1,0 +1,11 @@
+CRTeCK
+Browser demo released at DemoJS 2013 - Paris
+
+wsmind
+TiteiKo
+Did'
+
+- packed version works with Chrome only (latest FF versions seems to have issues with PNG compression)
+- resize is broken on packed version, need refresh *after* loading is finished to get the actual render target size
+
+Originally done from scratch in less than 24h, this is a final version with a few tweaks here and there ;)
