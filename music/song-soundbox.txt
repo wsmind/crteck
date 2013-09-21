@@ -1,4 +1,4 @@
-Music in the form of data URLs.
+Music in the form of data URLs. Just copy and paste to address bar to listen/edit the music.
 
 This is a manual history snapshot of the demo music. Latest is the lowest.
 
