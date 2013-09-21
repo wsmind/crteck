@@ -23,7 +23,13 @@
 *
 */
 
-// MODIFIED FROM ORIGINAL SOURCE
+// == MODIFIED FROM ORIGINAL SOURCE CODE ==
+/*
+* Note from @wsmind:
+* I made a few modifications to the original source code.
+* Nothing fundammental though, the audio rendering
+* algorithm was not altered.
+*/
 
 var CPlayer = function()
 {

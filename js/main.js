@@ -47,6 +47,7 @@ function resize()
 {
 	canvas.width = window.innerWidth
 	canvas.height = window.innerHeight
+	gl.bindFramebuffer(gl.FRAMEBUFFER, null)
 	gl.viewport(0, 0, canvas.width, canvas.height)
 	
 	if (window.renderTarget !== undefined)
@@ -54,6 +55,9 @@ function resize()
 		// resize render target
 		gl.bindTexture(gl.TEXTURE_2D, renderTarget)
 		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, canvas.width, canvas.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null)
+		
+		gl.bindFramebuffer(gl.FRAMEBUFFER, fbo)
+		gl.viewport(0, 0, canvas.width, canvas.height)
 	}
 }
 
