@@ -83,8 +83,9 @@ function main()
  * This function has been directly taken from https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/sdk/demos/common/webgl-utils.js
  */
 var requestAnimFrame = (function() {
-  return window.webkitRequestAnimationFrame ||
-         window.mozRequestAnimationFrame
+  return window.requestAnimationFrame ||
+		 window.webkitRequestAnimationFrame ||
+		 window.mozRequestAnimationFrame
 })();
 
 // start demo!
